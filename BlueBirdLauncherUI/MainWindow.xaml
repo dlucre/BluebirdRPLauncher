@@ -1,0 +1,157 @@
+﻿<Window x:Class="BlueBirdLauncherUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlueBirdLauncherUI"
+        mc:Ignorable="d"
+        Title="BlueBird RP Launcher" Height="800" Width="1200" Loaded="Window_Loaded">
+    <Grid Name="gridMain">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100px"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="images/portrait.png" HorizontalAlignment="Center" />
+
+        <WrapPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <WrapPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="10"/>
+                    <Setter Property="Padding" Value="20"/>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </WrapPanel.Resources>
+
+            <Button Name="btnDiscover" Content="Discover" FontWeight="bold" Click="btnDiscover_Click">
+                <Button.Effect>
+                    <DropShadowEffect x:Name="dseDiscover" Color="Blue" Opacity="100"/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btnFiveM" Content="FiveM"  FontWeight="bold" Click="btnFiveM_Click">
+                <Button.Effect>
+                    <DropShadowEffect x:Name="dseFiveM" Color="Blue" Opacity="0"/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btnRedM" Content="RedM"  FontWeight="bold" Click="btnRedM_Click">
+                <Button.Effect>
+                    <DropShadowEffect x:Name="dseRedM" Color="Blue" Opacity="0"/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btnMinecraft" Content="Minecraft"  FontWeight="bold" Click="btnMinecraft_Click">
+                <Button.Effect>
+                    <DropShadowEffect x:Name="dseMinecraft" Color="Blue" Opacity="0"/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btnRivals" Content="BlueBird Rivals"  FontWeight="bold" Click="btnRivals_Click">
+                <Button.Effect>
+                    <DropShadowEffect x:Name="dseRivals" Color="Blue" Opacity="0"/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btnMore" Content="More"  FontWeight="bold" Click="btnMore_Click">
+                <Button.Effect>
+                    <DropShadowEffect x:Name="dseMore" Color="Blue" Opacity="0"/>
+                </Button.Effect>
+            </Button>
+        </WrapPanel>
+
+        <Grid Name="gridDiscover" Visibility="Hidden" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TabControl Grid.Row="1" Grid.Column="0"  Width="Auto" >
+                <TabControl.Resources>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="Padding" Value="20"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </TabControl.Resources>
+
+                <TabItem Header="Content Creators" FontWeight="Bold">
+                    <Label Content="Coming soon..."></Label>
+                </TabItem>
+                <TabItem Header="Connect with BlueBird" FontWeight="Bold">
+                    <Label Content="Coming soon..."></Label>
+
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+        <Grid Name="gridFiveM" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TabControl Grid.Row="1" Grid.Column="0"  Width="Auto" >
+                <TabControl.Resources>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="Padding" Value="20"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </TabControl.Resources>
+
+                <TabItem Header="BlueBird RP" FontWeight="Bold">
+                    <Grid Name="gridGTAVBBRP">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Content="WELCOME TO BLUEBIRDRP!" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="36"></Label>
+                        <Label Content="Grand Theft Auto V Serious Rolelay Server" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="24"></Label>
+
+                        <Label Content="Ready to join?" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" FontSize="36" VerticalAlignment="Center"></Label>
+
+                        <WrapPanel  Grid.Row="2" Grid.Column="1">
+                            <WrapPanel.Resources>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Margin" Value="10"/>
+                                    <Setter Property="Padding" Value="20"/>
+                                    <Setter Property="FontSize" Value="20"/>
+                                </Style>
+                            </WrapPanel.Resources>
+                            
+                            <Button Name="btnGTAVJoinNow" Content="Join Now" Click="btnGTAVJoinNow_Click"/>
+                            <Button Name="btnGTAVClearCache" Content="Clear FiveM Cache" Click="btnGTAVClearCache_Click" />
+                            <Button Name="btnGTAVInstallAdditionalAssets" Content="Install Additional Assets" Click="btnGTAVInstallAdditionalAssets_Click" />
+                        </WrapPanel>
+
+                        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="24" Content="The BlueBirdRP server is a life server based in Victoria.&#xA;&#xA;There are many whitelisted roles for you to fill including:&#xA;- Civilian&#xA;- Police&#xA;- Ambos&#xA;- Firefighters&#xA;- Many non-whitelisted roles to try."/>
+
+
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="BlueBird Racing (Coming Soon)" FontWeight="Bold">
+                    <Label Content="Coming soon..."></Label>
+
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+
+    </Grid>
+</Window>
