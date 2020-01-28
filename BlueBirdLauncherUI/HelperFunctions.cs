@@ -11,7 +11,7 @@ namespace BlueBirdLauncherUI
     public static class Help
     {
 
-        public static string version_number = "0.1";
+        public static string version_number = "0.2";
         private static string fivem_bluebird_hostname = "fivem.bluebirdrp.com";
         private static Int32 fivem_bluebird_port = 30111;
 
@@ -48,6 +48,23 @@ namespace BlueBirdLauncherUI
 
             LogMessage("Couldn't find GTA V.");
             return null;
+        }
+
+        public static bool GTAVInstallAdditionalAssets()
+        {
+            var gta_directory = GetGTAVDirectory();
+            if (gta_directory != null)
+            {
+                //Find GTAV SFX folder
+                var sfx_folder = Path.Combine(gta_directory, "x64", "audio", "sfx");
+                if (Directory.Exists(sfx_folder))
+                {
+                    //Check that we have a RESIDENT.rpf file available
+
+                }
+            }
+
+            return false;
         }
         #endregion
 

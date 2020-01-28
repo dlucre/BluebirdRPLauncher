@@ -84,8 +84,6 @@ namespace BlueBirdLauncherUI
 
             HideAllContentGrids();
             this.gridFiveM.Visibility = Visibility.Visible;
-
-
         }
 
         private void btnRedM_Click(object sender, RoutedEventArgs e)
@@ -94,6 +92,7 @@ namespace BlueBirdLauncherUI
             this.dseRedM.Opacity = 100;
 
             HideAllContentGrids();
+            this.gridRedM.Visibility = Visibility.Visible;
         }
 
         private void btnMinecraft_Click(object sender, RoutedEventArgs e)
@@ -102,6 +101,7 @@ namespace BlueBirdLauncherUI
             this.dseMinecraft.Opacity = 100;
 
             HideAllContentGrids();
+            this.gridMinecraft.Visibility = Visibility.Visible;
         }
 
         private void btnRivals_Click(object sender, RoutedEventArgs e)
@@ -110,6 +110,7 @@ namespace BlueBirdLauncherUI
             this.dseRivals.Opacity = 100;
 
             HideAllContentGrids();
+            this.gridRivals.Visibility = Visibility.Visible;
         }
 
         private void btnMore_Click(object sender, RoutedEventArgs e)
@@ -118,6 +119,7 @@ namespace BlueBirdLauncherUI
             this.dseMore.Opacity = 100;
 
             HideAllContentGrids();
+            this.gridMore.Visibility = Visibility.Visible;
         }
 
 
@@ -134,6 +136,10 @@ namespace BlueBirdLauncherUI
         {
             this.gridDiscover.Visibility = Visibility.Hidden;
             this.gridFiveM.Visibility = Visibility.Hidden;
+            this.gridRedM.Visibility = Visibility.Hidden;
+            this.gridMinecraft.Visibility = Visibility.Hidden;
+            this.gridRivals.Visibility = Visibility.Hidden;
+            this.gridMore.Visibility = Visibility.Hidden;
         }
         #endregion
 
@@ -153,7 +159,7 @@ namespace BlueBirdLauncherUI
                 MessageBox.Show("FiveM Cache has been cleared successfully!", "Clear FiveM Cache", MessageBoxButton.OK);
             }
             else
-            { 
+            {
                 MessageBox.Show("FiveM Cache has not been cleared.  Check the More tab for more details.", "Clear FiveM Cache", MessageBoxButton.OK);
             }
         }

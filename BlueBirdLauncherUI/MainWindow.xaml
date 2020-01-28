@@ -133,7 +133,7 @@
                                     <Setter Property="FontSize" Value="20"/>
                                 </Style>
                             </WrapPanel.Resources>
-                            
+
                             <Button Name="btnGTAVJoinNow" Content="Join Now" Click="btnGTAVJoinNow_Click"/>
                             <Button Name="btnGTAVClearCache" Content="Clear FiveM Cache" Click="btnGTAVClearCache_Click" />
                             <Button Name="btnGTAVInstallAdditionalAssets" Content="Install Additional Assets" Click="btnGTAVInstallAdditionalAssets_Click" />
@@ -152,6 +152,110 @@
             </TabControl>
         </Grid>
 
+        <Grid Name="gridRedM" Visibility="Hidden" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TabControl Grid.Row="1" Grid.Column="0"  Width="Auto" >
+                <TabControl.Resources>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="Padding" Value="20"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </TabControl.Resources>
+                <TabItem Header="BlueBird RP (Alpha)" FontWeight="Bold">
+                    <Label Content="Coming soon..."></Label>
+
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+
+        <Grid Name="gridMinecraft" Visibility="Hidden" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TabControl Grid.Row="1" Grid.Column="0"  Width="Auto" >
+                <TabControl.Resources>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="Padding" Value="20"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </TabControl.Resources>
+                <TabItem Header="Minecraft Servers" FontWeight="Bold">
+                    <Label Content="Coming soon..."></Label>
+
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+        <Grid Name="gridRivals" Visibility="Hidden" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TabControl Grid.Row="1" Grid.Column="0"  Width="Auto" >
+                <TabControl.Resources>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="Padding" Value="20"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </TabControl.Resources>
+                <TabItem Header="Watch it Live" FontWeight="Bold">
+                    <Label Content="Coming soon..."></Label>
+
+                </TabItem>
+                <TabItem Header="Connect" FontWeight="Bold">
+                    <Label Content="Coming soon..."></Label>
+
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+        <Grid Name="gridMore" Visibility="Hidden" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TabControl Grid.Row="1" Grid.Column="0"  Width="Auto" >
+                <TabControl.Resources>
+                    <Style TargetType="{x:Type TabItem}">
+                        <Setter Property="Padding" Value="20"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </TabControl.Resources>
+                <TabItem Header="General" FontWeight="Bold">
+                    <Label Content="Coming soon..."></Label>
+
+                </TabItem>
+                <TabItem Header="Help" FontWeight="Bold">
+                    <Label Content="Coming soon..."></Label>
+
+                </TabItem>
+            </TabControl>
+        </Grid>
 
     </Grid>
 </Window>
