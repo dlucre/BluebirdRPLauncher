@@ -51,6 +51,7 @@ namespace BlueBirdLauncherUI
 
             //While debugging, switch to FiveM immediately
 
+            var fivem_path = Help.GetFiveMAppDataPath();
 
             ////Check steam is installed
             //var steam_path = Help.GetPathToSteam();

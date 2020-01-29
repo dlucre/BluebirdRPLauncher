@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using Microsoft.Win32;
 using EpEren.Fivem.ServerStatus.ServerAPI;
+using IWshRuntimeLibrary;
+using File = System.IO.File;
 
 namespace BlueBirdLauncherUI
 {
@@ -64,7 +66,9 @@ namespace BlueBirdLauncherUI
                     //Check that we have a RESIDENT.rpf file available
                     if (!File.Exists(source_resident_rpf_file))
                     {
-                        //Need to acquire RESIDENT.rpf from somewhere                        
+                        //Need to acquire RESIDENT.rpf from somewhere      
+                        //Get it from here:
+                        //
                     }
 
                     if (File.Exists(source_resident_rpf_file))
@@ -206,7 +210,7 @@ namespace BlueBirdLauncherUI
         {
             try
             {
-                var path_to_cache = Path.Combine(Environment.GetEnvironmentVariable("LOCALAPPDATA"), @"FiveM\FiveM.app\cache");
+                var path_to_cache = Path.Combine(GetFiveMAppDataPath(), @"cache");
                 if (System.IO.Directory.Exists(path_to_cache))
                 {
                     return path_to_cache;
@@ -326,6 +330,42 @@ namespace BlueBirdLauncherUI
         }
         #endregion
 
+        #region Shortcut Handling
+        public static string GetFiveMAppDataPath()
+        {
+            try
+            {
+                var path_to_five_m_appdata = Path.Combine(Environment.GetEnvironmentVariable("LOCALAPPDATA"), @"FiveM\FiveM.app");
+                if (Directory.Exists(path_to_five_m_appdata))
+                    return path_to_five_m_appdata;
+
+                var path_to_fivem_shortcut = Path.Combine(Environment.GetEnvironmentVariable("APPDATA"), @"Microsoft\Windows\Start Menu\Programs\FiveM.lnk");
+
+                if (System.IO.File.Exists(path_to_fivem_shortcut))
+                {
+                    // WshShellClass shell = new WshShellClass();
+                    WshShell shell = new WshShell(); //Create a new WshShell Interface
+                    IWshShortcut link = (IWshShortcut)shell.CreateShortcut(path_to_fivem_shortcut); //Link the interface to our shortcut
+
+                    return link.TargetPath.Replace(@"\FiveM.exe", "");
+                }
+            }
+            catch (Exception ex)
+            {
+                //react appropriately
+                LogMessage(ex.Message);
+                LogException(ex);
+                return null;
+            }
+
+
+            //Didn't find FiveM
+            LogMessage("Couldn't find FiveM Path from Shortcut.");
+
+
+            return null;
+        }
+        #endregion
 
         #region Extensions
         public static bool IsNumeric(this string text)
