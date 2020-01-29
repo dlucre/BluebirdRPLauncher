@@ -156,17 +156,25 @@ namespace BlueBirdLauncherUI
             var clear_cache_result = Help.ClearFiveMCache();
             if (clear_cache_result)
             {
-                MessageBox.Show("FiveM Cache has been cleared successfully!", "Clear FiveM Cache", MessageBoxButton.OK);
+                MessageBox.Show("FiveM Cache has been cleared successfully!", "Clear FiveM Cache", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                MessageBox.Show("FiveM Cache has not been cleared.  Check the More tab for more details.", "Clear FiveM Cache", MessageBoxButton.OK);
+                MessageBox.Show("FiveM Cache has not been cleared.  Check the More tab for more details.", "Clear FiveM Cache", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
         private void btnGTAVInstallAdditionalAssets_Click(object sender, RoutedEventArgs e)
         {
-
+            var install_additional_assets = Help.GTAVInstallAdditionalAssets();
+            if (install_additional_assets)
+            {
+                MessageBox.Show("Additional assets have been installed successfully!", "Install Additional Assets", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Additional assets have not been installed successfully!  Check the More tab for more details.", "Install Additional Assets", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
         #endregion
 

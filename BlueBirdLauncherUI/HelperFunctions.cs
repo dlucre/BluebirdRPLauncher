@@ -60,6 +60,17 @@ namespace BlueBirdLauncherUI
                 if (Directory.Exists(sfx_folder))
                 {
                     //Check that we have a RESIDENT.rpf file available
+                    if (!File.Exists("RESIDENT.rpf"))
+                    {
+                        //Need to acquire RESIDENT.rpf from somewhere                        
+                    }
+
+                    if (File.Exists("RESIDENT.rpf"))
+                    {
+                        //Copy it to the sfx folder above
+                        File.Copy("RESIDENT.rpf", Path.Combine(sfx_folder, "RESIDENT.rpf"), true);
+                        return true;
+                    }
 
                 }
             }
