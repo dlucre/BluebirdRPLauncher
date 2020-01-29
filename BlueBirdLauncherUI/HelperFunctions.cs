@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Microsoft.Win32;
+using EpEren.Fivem.ServerStatus.ServerAPI;
 
 namespace BlueBirdLauncherUI
 {
@@ -56,19 +57,20 @@ namespace BlueBirdLauncherUI
             if (gta_directory != null)
             {
                 //Find GTAV SFX folder
+                var source_resident_rpf_file = Path.Combine("Assets", "FiveM", "RESIDENT.rpf");
                 var sfx_folder = Path.Combine(gta_directory, "x64", "audio", "sfx");
                 if (Directory.Exists(sfx_folder))
                 {
                     //Check that we have a RESIDENT.rpf file available
-                    if (!File.Exists("RESIDENT.rpf"))
+                    if (!File.Exists(source_resident_rpf_file))
                     {
                         //Need to acquire RESIDENT.rpf from somewhere                        
                     }
 
-                    if (File.Exists("RESIDENT.rpf"))
+                    if (File.Exists(source_resident_rpf_file))
                     {
                         //Copy it to the sfx folder above
-                        File.Copy("RESIDENT.rpf", Path.Combine(sfx_folder, "RESIDENT.rpf"), true);
+                        File.Copy(source_resident_rpf_file, Path.Combine(sfx_folder, "RESIDENT.rpf"), true);
                         return true;
                     }
 
@@ -271,6 +273,56 @@ namespace BlueBirdLauncherUI
             //Example URL
             //fivem://connect/fivem.bluebirdrp.com:30111
             System.Diagnostics.Process.Start(string.Format("fivem://connect/{0}:{1}", fivem_bluebird_hostname, fivem_bluebird_port));
+        }
+
+        public static FiveMServerStatusReturnModel CheckFiveMServerPlayerCount()
+        {
+            //https://github.com/ErenKrt/Fivem-Server-Status
+            var server_status_model = new FiveMServerStatusReturnModel();
+
+            try
+            {
+                var status_response = new Fivem(string.Format("{0}:{1}", fivem_bluebird_hostname, fivem_bluebird_port));
+                if (status_response.GetStatu())
+                {
+                    server_status_model.server_online = true;
+                    server_status_model.raw_server_response = status_response;
+                    
+                    var ClassObject = status_response.GetObject();
+
+                    server_status_model.max_users = status_response.GetMaxPlayersCount();
+                    server_status_model.current_users  = status_response.GetOnlinePlayersCount();
+
+                    //Console.WriteLine(status_response.GetGameName()); //string
+                    //Console.WriteLine(status_response.GetMaxPlayersCount());  //int
+                    //Console.WriteLine(status_response.GetOnlinePlayersCount());  //int
+                    //Console.WriteLine(status_response.GetPlayers()); //object list
+                    //Console.WriteLine(status_response.GetResources()); //string list
+                    //Console.WriteLine(status_response.GetServerHost());  //string
+                    //Console.WriteLine(status_response.GetStatu()); // server online(bool=true) or ofline(bool=false)
+                    //Console.WriteLine(status_response.GetVars()); //object list
+                    //Console.WriteLine(status_response.GetVars());
+                    //var xD = status_response.GetVars();
+                    //for (int i = 0; i < xD.Count; i++)
+                    //{
+                    //    var name = xD[i].key;
+                    //    var value = xD[i].value;
+
+                    //    Console.WriteLine("{0}:{1}", name, value);
+                    //}
+                }
+                else
+                {
+                    throw new Exception("Server connection failed!  Couldn't check status!");
+                }
+            }
+            catch (Exception ex)
+            {
+                LogMessage(ex.Message);
+                LogException(ex);
+                server_status_model.server_online = false;
+            }
+            return server_status_model;
         }
         #endregion
 

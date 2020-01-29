@@ -70,6 +70,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -146,6 +147,12 @@
     <Resource Include="assets\FiveM\coloredmapfiles\ui\pausemenu.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EpEren.Fivem.ServerStatus\EpEren.Fivem.ServerStatus.csproj">
+      <Project>{075fa492-7586-44da-9eab-ae2ce5909820}</Project>
+      <Name>EpEren.Fivem.ServerStatus</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

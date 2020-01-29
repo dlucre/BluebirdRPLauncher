@@ -112,6 +112,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
@@ -119,13 +120,29 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+                        
 
                         <Label Content="WELCOME TO BLUEBIRDRP!" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="36"></Label>
                         <Label Content="Grand Theft Auto V Serious Rolelay Server" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="24"></Label>
 
-                        <Label Content="Ready to join?" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" FontSize="36" VerticalAlignment="Center"></Label>
+                        <Grid Name="gridFiveMServerStatus" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Server Status" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontSize="36" VerticalAlignment="Center"></Label>
 
-                        <WrapPanel  Grid.Row="2" Grid.Column="1">
+                            <Label Content="Unknown" Name="lblFiveMCurrentServerStatus" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" FontSize="36" VerticalAlignment="Center"></Label>
+
+
+                        </Grid>
+                        
+                        <Label Content="Ready to join?" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" FontSize="36" VerticalAlignment="Center"></Label>
+
+                        <WrapPanel  Grid.Row="3" Grid.Column="1">
                             <WrapPanel.Resources>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Margin" Value="10"/>
@@ -139,7 +156,7 @@
                             <Button Name="btnGTAVInstallAdditionalAssets" Content="Install Additional Assets" Click="btnGTAVInstallAdditionalAssets_Click" />
                         </WrapPanel>
 
-                        <Label Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="24" Content="The BlueBirdRP server is a life server based in Victoria.&#xA;&#xA;There are many whitelisted roles for you to fill including:&#xA;- Civilian&#xA;- Police&#xA;- Ambos&#xA;- Firefighters&#xA;- Many non-whitelisted roles to try."/>
+                        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="24" Content="The BlueBirdRP server is a life server based in Victoria.&#xA;&#xA;There are many whitelisted roles for you to fill including:&#xA;- Civilian&#xA;- Police&#xA;- Ambos&#xA;- Firefighters&#xA;- Many non-whitelisted roles to try."/>
 
 
 

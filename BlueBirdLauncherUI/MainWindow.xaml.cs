@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace BlueBirdLauncherUI
 {
@@ -22,6 +23,7 @@ namespace BlueBirdLauncherUI
     {
         public bool steam_installed = false;
         public bool gtav_installed = false;
+        private DispatcherTimer five_m_server_status_checker;
 
         public MainWindow()
         {
@@ -32,11 +34,22 @@ namespace BlueBirdLauncherUI
         {
             Title = string.Format("BlueBird RP Launcher v{0}", Help.version_number);
 
-            HideAllDSEs();
-            this.dseDiscover.Opacity = 100;
+            //HideAllDSEs();
+            //this.dseDiscover.Opacity = 100;
+            //HideAllContentGrids();
+            //this.gridDiscover.Visibility = Visibility.Visible;
 
+            HideAllDSEs();
+            this.dseFiveM.Opacity = 100;
             HideAllContentGrids();
-            this.gridDiscover.Visibility = Visibility.Visible;
+            this.gridFiveM.Visibility = Visibility.Visible;
+
+            five_m_server_status_checker = new DispatcherTimer();
+            five_m_server_status_checker.Interval = TimeSpan.FromSeconds(1);
+            five_m_server_status_checker.Tick += five_m_server_status_checker_Tick;
+            five_m_server_status_checker.Start();
+
+            //While debugging, switch to FiveM immediately
 
 
             ////Check steam is installed
@@ -176,6 +189,22 @@ namespace BlueBirdLauncherUI
                 MessageBox.Show("Additional assets have not been installed successfully!  Check the More tab for more details.", "Install Additional Assets", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+
+        private void five_m_server_status_checker_Tick(object sender, EventArgs e)
+        {
+            five_m_server_status_checker.Interval = TimeSpan.FromSeconds(60);
+            var fivem_server_status = Help.CheckFiveMServerPlayerCount();
+            if (fivem_server_status.server_online)
+            {
+                this.lblFiveMCurrentServerStatus.Content = string.Format("Online {0}/{1} players", fivem_server_status.current_users, fivem_server_status.max_users);
+            }
+            else
+            {
+                this.lblFiveMCurrentServerStatus.Content = "Offline";
+            }
+            
+        }
+
         #endregion
 
     }

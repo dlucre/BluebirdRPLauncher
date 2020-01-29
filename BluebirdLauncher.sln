@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BluebirdLauncher", "Bluebir
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueBirdLauncherUI", "BlueBirdLauncherUI\BlueBirdLauncherUI.csproj", "{DC9F21FF-7D96-4608-9FC1-DE04835D92F1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{A6C03003-C887-47E4-A0E7-CF0328E5F0DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpEren.Fivem.ServerStatus", "EpEren.Fivem.ServerStatus\EpEren.Fivem.ServerStatus.csproj", "{075FA492-7586-44DA-9EAB-AE2CE5909820}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,16 @@ Global
 		{DC9F21FF-7D96-4608-9FC1-DE04835D92F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC9F21FF-7D96-4608-9FC1-DE04835D92F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC9F21FF-7D96-4608-9FC1-DE04835D92F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{075FA492-7586-44DA-9EAB-AE2CE5909820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{075FA492-7586-44DA-9EAB-AE2CE5909820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{075FA492-7586-44DA-9EAB-AE2CE5909820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{075FA492-7586-44DA-9EAB-AE2CE5909820}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{075FA492-7586-44DA-9EAB-AE2CE5909820} = {A6C03003-C887-47E4-A0E7-CF0328E5F0DC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A3E6C76B-E585-4F95-B92C-AE26D76474A8}
