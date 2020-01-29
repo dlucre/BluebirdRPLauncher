@@ -87,20 +87,48 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_0_0.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_0_1.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_1_0.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_1_1.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_2_0.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_2_1.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_lod_128.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_0_0.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_0_1.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_1_0.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_1_1.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_2_0.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_2_1.ytd" />
-    <None Include="assets\FiveM\coloredmapfiles\ui\mapzoomdata.meta" />
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_0_0.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_0_1.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_1_0.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_1_1.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_2_0.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_2_1.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_lod_128.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_0_0.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_0_1.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_1_0.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_1_1.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_2_0.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\cdimages\scaleform_generic\minimap_sea_2_1.ytd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="assets\FiveM\coloredmapfiles\ui\mapzoomdata.meta">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -115,7 +143,9 @@
     <Resource Include="images\landscape.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="assets\FiveM\coloredmapfiles\ui\pausemenu.xml" />
+    <Resource Include="assets\FiveM\coloredmapfiles\ui\pausemenu.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
