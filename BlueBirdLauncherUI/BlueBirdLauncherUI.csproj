@@ -144,9 +144,9 @@
     <Resource Include="images\landscape.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="assets\FiveM\coloredmapfiles\ui\pausemenu.xml">
+    <None Include="assets\FiveM\coloredmapfiles\ui\pausemenu.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EpEren.Fivem.ServerStatus\EpEren.Fivem.ServerStatus.csproj">

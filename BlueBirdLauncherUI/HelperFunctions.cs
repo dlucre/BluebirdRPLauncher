@@ -8,6 +8,7 @@ using Microsoft.Win32;
 using EpEren.Fivem.ServerStatus.ServerAPI;
 using IWshRuntimeLibrary;
 using File = System.IO.File;
+using System.Security.Cryptography;
 
 namespace BlueBirdLauncherUI
 {
@@ -55,34 +56,105 @@ namespace BlueBirdLauncherUI
 
         public static bool GTAVInstallAdditionalAssets()
         {
-            var gta_directory = GetGTAVDirectory();
-            if (gta_directory != null)
-            {
-                //Find GTAV SFX folder
-                var source_resident_rpf_file = Path.Combine("Assets", "FiveM", "RESIDENT.rpf");
-                var sfx_folder = Path.Combine(gta_directory, "x64", "audio", "sfx");
-                if (Directory.Exists(sfx_folder))
-                {
-                    //Check that we have a RESIDENT.rpf file available
-                    if (!File.Exists(source_resident_rpf_file))
-                    {
-                        //Need to acquire RESIDENT.rpf from somewhere      
-                        //Get it from here:
-                        //
-                    }
+            var resident_file_install_result = true;// InstallGTAResidentFile();
 
-                    if (File.Exists(source_resident_rpf_file))
-                    {
-                        //Copy it to the sfx folder above
-                        File.Copy(source_resident_rpf_file, Path.Combine(sfx_folder, "RESIDENT.rpf"), true);
-                        return true;
-                    }
+            var map_file_install_result = InstallFiveMMapFiles();
 
-                }
-            }
-
-            return false;
+            return resident_file_install_result && map_file_install_result;
         }
+
+        public static bool InstallGTAResidentFile()
+        {
+            try
+            {
+                //GTA Resident File
+                var gta_directory = GetGTAVDirectory();
+                if (gta_directory != null)
+                {
+                    //Find GTAV SFX folder
+                    var source_resident_rpf_file = Path.Combine("Assets", "FiveM", "RESIDENT.rpf");
+                    var sfx_folder = Path.Combine(gta_directory, "x64", "audio", "sfx");
+                    var destination_rpf_path = Path.Combine(sfx_folder, "RESIDENT.rpf");
+                    if (Directory.Exists(sfx_folder))
+                    {
+                        //Check that we have a RESIDENT.rpf file available
+                        if (!File.Exists(source_resident_rpf_file))
+                        {
+                            //Need to acquire RESIDENT.rpf from here:
+                            //https://bluebirdrp.live/applications/core/interface/file/attachment.php?id=245
+                        }
+
+                        if (File.Exists(source_resident_rpf_file))
+                        {
+                            //Copy it to the sfx folder above (replace every time)
+                            File.Copy(source_resident_rpf_file, destination_rpf_path, true);
+                            return true;
+                        }
+
+                    }
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                //react appropriately
+                LogMessage(ex.Message);
+                LogException(ex);
+                return false;
+            }
+        }
+
+        public static bool InstallFiveMMapFiles()
+        {
+            try
+            {
+                //FiveM Map Files
+                /*
+                 * https://forum.cfx.re/t/release-colored-map-pause-menu/12344?__cf_chl_captcha_tk__=f86140ec7eedc92bd61e6bc911aba46b6b63fa5a-1580288150-0-ARA4XbIEf3gFAoenWatH8MEktJzUxFaJrtZ361hdjd2atP0nWj4s7KbR5jx_Sstl6pflmnVgLBHvTkhMuJpFdLGGPx6XYyiAAEyWahWTCPuKkfYqObvJ3jgljFVsxxVpoVaz5LKHRZXHjXE17Be6mZq7yhJfTJEZVD6P1OwFi_Fhdq7EZO-Ne2N-gxC21gpgDpTFkLsigHJ9RQYayth0aau2HNieCTgoWZkU0CQx7m0Nx-2xJwFRi2q3N8eER-3xrn87qDumc21FSscMo3-Td6HtyLOU4m2T-iXX9I_IBBnbAqwZz8t9XAItsdJL7tJ_OuLtrKd-wQ2jI7BsYFaXQmd_ZiQ_hjBJiIPzme3j2FIwQkA2rk1NddgYpxbb1a54N187jDq__h6GDKia7vJx1GiotG8IdgirmHaD-VYoGDNx
+                 * First file ( ui ) go in your FiveM / Citizen / Common / Data drag the file in.
+                 * Second file ( cdimages ) FiveM / Citizen / Platform / Data drag the file in.
+                 */
+
+                var path_to_citizen_common_data = Path.Combine(GetFiveMAppDataPath(), "citizen", "common", "data");
+                if (Directory.Exists(path_to_citizen_common_data))
+                {
+                    foreach (var ui_file in Directory.GetFiles(@"assets\FiveM\coloredmapfiles\ui"))
+                    {
+                        //Console.WriteLine(ui_file);
+                        var fi = new FileInfo(ui_file);
+                        var destination_file = Path.Combine(path_to_citizen_common_data, "ui", fi.Name);
+                        File.Copy(ui_file, destination_file, true);
+                        //Console.WriteLine(destination_file);
+                    }
+                }
+
+
+                var path_to_citizen_platform_data = Path.Combine(GetFiveMAppDataPath(), "citizen", "platform", "data");
+                if (Directory.Exists(path_to_citizen_platform_data))
+                {
+                    if (!Directory.Exists(Path.Combine(path_to_citizen_platform_data, "cdimages", "scaleform_generic")))
+                        Directory.CreateDirectory(Path.Combine(path_to_citizen_platform_data, "cdimages", "scaleform_generic"));
+
+                    foreach (var image_file in Directory.GetFiles(@"assets\FiveM\coloredmapfiles\cdimages\scaleform_generic"))
+                    {
+                        //Console.WriteLine(image_file);
+                        var fi = new FileInfo(image_file);
+                        var destination_file = Path.Combine(path_to_citizen_platform_data, "cdimages", "scaleform_generic", fi.Name);
+                        File.Copy(image_file, destination_file, true);
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //react appropriately
+                LogMessage(ex.Message);
+                LogException(ex);
+                return false;
+            }
+        }
+
         #endregion
 
         #region Steam
@@ -291,11 +363,11 @@ namespace BlueBirdLauncherUI
                 {
                     server_status_model.server_online = true;
                     server_status_model.raw_server_response = status_response;
-                    
+
                     var ClassObject = status_response.GetObject();
 
                     server_status_model.max_users = status_response.GetMaxPlayersCount();
-                    server_status_model.current_users  = status_response.GetOnlinePlayersCount();
+                    server_status_model.current_users = status_response.GetOnlinePlayersCount();
 
                     //Console.WriteLine(status_response.GetGameName()); //string
                     //Console.WriteLine(status_response.GetMaxPlayersCount());  //int
