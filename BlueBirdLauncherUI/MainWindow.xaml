@@ -5,60 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlueBirdLauncherUI"
         mc:Ignorable="d"
-        Title="BlueBird RP Launcher" Height="800" Width="1200" Loaded="Window_Loaded">
+        Title="BlueBird RP Launcher" Height="800" Width="1200" Loaded="Window_Loaded" Background="#111111">
     <Grid Name="gridMain">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100px"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="images/portrait.png" HorizontalAlignment="Center" />
-
-        <WrapPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" >
-            <WrapPanel.Resources>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Margin" Value="10"/>
-                    <Setter Property="Padding" Value="20"/>
-                    <Setter Property="FontSize" Value="20"/>
-                </Style>
-            </WrapPanel.Resources>
-
-            <Button Name="btnDiscover" Content="Discover" FontWeight="bold" Click="btnDiscover_Click">
+        <WrapPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" >
+            <Button Name="btnDiscover" Content="Discover" FontWeight="bold" Click="btnDiscover_Click"  Style="{StaticResource HyperlinkLikeButton}">
                 <Button.Effect>
-                    <DropShadowEffect x:Name="dseDiscover" Color="Blue" Opacity="100"/>
+                    <DropShadowEffect x:Name="dseDiscover" Color="#1D98FF" Opacity="100"/>
                 </Button.Effect>
             </Button>
-            <Button Name="btnFiveM" Content="FiveM"  FontWeight="bold" Click="btnFiveM_Click">
+            <Button Name="btnFiveM" Content="FiveM" FontWeight="bold" Click="btnFiveM_Click" Style="{StaticResource HyperlinkLikeButton}">
                 <Button.Effect>
-                    <DropShadowEffect x:Name="dseFiveM" Color="Blue" Opacity="0"/>
+                    <DropShadowEffect x:Name="dseFiveM" Color="#1D98FF" Opacity="0"/>
                 </Button.Effect>
             </Button>
-            <Button Name="btnRedM" Content="RedM"  FontWeight="bold" Click="btnRedM_Click">
+            <Button Name="btnRedM" Content="RedM"  FontWeight="bold" Click="btnRedM_Click" Style="{StaticResource HyperlinkLikeButton}">
                 <Button.Effect>
-                    <DropShadowEffect x:Name="dseRedM" Color="Blue" Opacity="0"/>
+                    <DropShadowEffect x:Name="dseRedM" Color="#1D98FF" Opacity="0"/>
                 </Button.Effect>
             </Button>
-            <Button Name="btnMinecraft" Content="Minecraft"  FontWeight="bold" Click="btnMinecraft_Click">
+            <Button Name="btnMinecraft" Content="Minecraft"  FontWeight="bold" Click="btnMinecraft_Click" Style="{StaticResource HyperlinkLikeButton}">
                 <Button.Effect>
-                    <DropShadowEffect x:Name="dseMinecraft" Color="Blue" Opacity="0"/>
+                    <DropShadowEffect x:Name="dseMinecraft" Color="#1D98FF" Opacity="0"/>
                 </Button.Effect>
             </Button>
-            <Button Name="btnRivals" Content="BlueBird Rivals"  FontWeight="bold" Click="btnRivals_Click">
+            <Button Name="btnRivals" Content="BlueBird Rivals"  FontWeight="bold" Click="btnRivals_Click" Style="{StaticResource HyperlinkLikeButton}">
                 <Button.Effect>
-                    <DropShadowEffect x:Name="dseRivals" Color="Blue" Opacity="0"/>
+                    <DropShadowEffect x:Name="dseRivals" Color="#1D98FF" Opacity="0"/>
                 </Button.Effect>
             </Button>
-            <Button Name="btnMore" Content="More"  FontWeight="bold" Click="btnMore_Click">
+            <Button Name="btnMore" Content="More"  FontWeight="bold" Click="btnMore_Click" Style="{StaticResource HyperlinkLikeButton}">
                 <Button.Effect>
-                    <DropShadowEffect x:Name="dseMore" Color="Blue" Opacity="0"/>
+                    <DropShadowEffect x:Name="dseMore" Color="#1D98FF" Opacity="0"/>
                 </Button.Effect>
             </Button>
         </WrapPanel>
+
+        <WrapPanel Name="wrapDiscover" Grid.Row="1"  Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Left" >
+            <Button Name="btnDiscover_ContentCreators" Content="Content Creators" FontWeight="bold" Click="btnDiscover_ContentCreators_Click"  Style="{StaticResource HyperlinkLikeButton}">
+                <Button.Effect>
+                    <DropShadowEffect x:Name="dseDiscover_ContentCreators" Color="#1D98FF" Opacity="100"/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btnDiscover_ConnectWithBluebird" Content="Connect with Bluebird" FontWeight="bold" Click="btnDiscover_ConnectWithBluebird_Click"  Style="{StaticResource HyperlinkLikeButton}">
+                <Button.Effect>
+                    <DropShadowEffect x:Name="dseDiscover_ConnectWithBluebird" Color="#1D98FF" Opacity="0"/>
+                </Button.Effect>
+            </Button>
+        </WrapPanel>
+
+        <WrapPanel Name="wrapFiveM" Grid.Row="1" Visibility="Visible" VerticalAlignment="Center" HorizontalAlignment="Left" >
+            <Button Name="btnFiveM_BluebirdRP" Content="Bluebird RP" FontWeight="bold" Click="btnFiveM_BluebirdRP_Click"  Style="{StaticResource HyperlinkLikeButton}">
+                <Button.Effect>
+                    <DropShadowEffect x:Name="dseFiveM_BluebirdRP" Color="#1D98FF" Opacity="100"/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btnFiveM_BluebirdRacing" Content="Bluebird Racing (Coming Soon)" FontWeight="bold" Click="btnFiveM_BluebirdRacing_Click"  Style="{StaticResource HyperlinkLikeButton}">
+                <Button.Effect>
+                    <DropShadowEffect x:Name="dseFiveM_BluebirdRacing" Color="#1D98FF" Opacity="0"/>
+                </Button.Effect>
+            </Button>
+        </WrapPanel>
+
+
+
 
         <Grid Name="gridDiscover" Visibility="Hidden" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
             <Grid.RowDefinitions>
@@ -70,7 +89,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TabControl Grid.Row="1" Grid.Column="0"  Width="Auto" >
+            <!--<TabControl Grid.Row="1" Grid.Column="0"  Width="Auto" >
                 <TabControl.Resources>
                     <Style TargetType="{x:Type TabItem}">
                         <Setter Property="Padding" Value="20"/>
@@ -85,10 +104,63 @@
                     <Label Content="Coming soon..."></Label>
 
                 </TabItem>
-            </TabControl>
+            </TabControl>-->
         </Grid>
 
-        <Grid Name="gridFiveM" Visibility="Visible" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+        <Grid Name="gridGTAVBBRP" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Label Content="WELCOME TO BLUEBIRDRP!" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Style="{StaticResource ContentHeadingLabel}"></Label>
+            <Label Content="Grand Theft Auto V Serious Rolelay Server" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Style="{StaticResource ContentLabel}"></Label>
+
+            <Grid Name="gridFiveMServerStatus" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Server Status" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource ContentHeadingLabel}" VerticalAlignment="Center"></Label>
+
+                <Label Content="Unknown" Name="lblFiveMCurrentServerStatus" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Style="{StaticResource ContentHeadingLabel}" VerticalAlignment="Center"></Label>
+
+
+            </Grid>
+
+            <Label Content="Ready to join?" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" Style="{StaticResource ContentHeadingLabel}" VerticalAlignment="Center"></Label>
+
+            <WrapPanel  Grid.Row="3" Grid.Column="1">
+                <WrapPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="10"/>
+                        <Setter Property="Padding" Value="20"/>
+                        <Setter Property="FontSize" Value="20"/>
+                    </Style>
+                </WrapPanel.Resources>
+
+                <Button Name="btnGTAVJoinNow" Content="Join Now" Click="btnGTAVJoinNow_Click"/>
+                <Button Name="btnGTAVClearCache" Content="Clear FiveM Cache" Click="btnGTAVClearCache_Click" />
+                <Button Name="btnGTAVInstallAdditionalAssets" Content="Install Additional Assets" Click="btnGTAVInstallAdditionalAssets_Click" />
+            </WrapPanel>
+
+            <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Style="{StaticResource ContentLabel}" Content="The BlueBirdRP server is a life server based in Victoria.&#xA;&#xA;There are many whitelisted roles for you to fill including:&#xA;- Civilian&#xA;- Police&#xA;- Ambos&#xA;- Firefighters&#xA;- Many non-whitelisted roles to try."/>
+
+        </Grid>
+
+        <!--<Grid Name="gridFiveM" Visibility="Visible" Grid.Row="2" HorizontalAlignment="Stretch">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -98,7 +170,8 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <TabControl Grid.Row="1" Grid.Column="0"  Width="Auto" >
+            -->
+        <!--<TabControl Grid.Row="1" Grid.Column="0"  Width="Auto" Background="Transparent" >
                 <TabControl.Resources>
                     <Style TargetType="{x:Type TabItem}">
                         <Setter Property="Padding" Value="20"/>
@@ -106,68 +179,15 @@
                     </Style>
                 </TabControl.Resources>
 
-                <TabItem Header="BlueBird RP" FontWeight="Bold">
-                    <Grid Name="gridGTAVBBRP">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        
-
-                        <Label Content="WELCOME TO BLUEBIRDRP!" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="36"></Label>
-                        <Label Content="Grand Theft Auto V Serious Rolelay Server" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="24"></Label>
-
-                        <Grid Name="gridFiveMServerStatus" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Content="Server Status" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontSize="36" VerticalAlignment="Center"></Label>
-
-                            <Label Content="Unknown" Name="lblFiveMCurrentServerStatus" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" FontSize="36" VerticalAlignment="Center"></Label>
-
-
-                        </Grid>
-                        
-                        <Label Content="Ready to join?" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" FontSize="36" VerticalAlignment="Center"></Label>
-
-                        <WrapPanel  Grid.Row="3" Grid.Column="1">
-                            <WrapPanel.Resources>
-                                <Style TargetType="{x:Type Button}">
-                                    <Setter Property="Margin" Value="10"/>
-                                    <Setter Property="Padding" Value="20"/>
-                                    <Setter Property="FontSize" Value="20"/>
-                                </Style>
-                            </WrapPanel.Resources>
-
-                            <Button Name="btnGTAVJoinNow" Content="Join Now" Click="btnGTAVJoinNow_Click"/>
-                            <Button Name="btnGTAVClearCache" Content="Clear FiveM Cache" Click="btnGTAVClearCache_Click" />
-                            <Button Name="btnGTAVInstallAdditionalAssets" Content="Install Additional Assets" Click="btnGTAVInstallAdditionalAssets_Click" />
-                        </WrapPanel>
-
-                        <Label Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="24" Content="The BlueBirdRP server is a life server based in Victoria.&#xA;&#xA;There are many whitelisted roles for you to fill including:&#xA;- Civilian&#xA;- Police&#xA;- Ambos&#xA;- Firefighters&#xA;- Many non-whitelisted roles to try."/>
-
-
-
-                    </Grid>
+                
                 </TabItem>
                 <TabItem Header="BlueBird Racing (Coming Soon)" FontWeight="Bold">
                     <Label Content="Coming soon..."></Label>
 
                 </TabItem>
-            </TabControl>
-        </Grid>
+            </TabControl>-->
+        <!--
+        </Grid>-->
 
         <Grid Name="gridRedM" Visibility="Hidden" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
             <Grid.RowDefinitions>

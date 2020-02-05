@@ -42,7 +42,7 @@ namespace BlueBirdLauncherUI
             HideAllDSEs();
             this.dseFiveM.Opacity = 100;
             HideAllContentGrids();
-            this.gridFiveM.Visibility = Visibility.Visible;
+            this.gridGTAVBBRP.Visibility = Visibility.Visible;
 
             five_m_server_status_checker = new DispatcherTimer();
             five_m_server_status_checker.Interval = TimeSpan.FromSeconds(1);
@@ -97,7 +97,7 @@ namespace BlueBirdLauncherUI
             this.dseFiveM.Opacity = 100;
 
             HideAllContentGrids();
-            this.gridFiveM.Visibility = Visibility.Visible;
+            this.gridGTAVBBRP.Visibility = Visibility.Visible;
         }
 
         private void btnRedM_Click(object sender, RoutedEventArgs e)
@@ -149,7 +149,7 @@ namespace BlueBirdLauncherUI
         private void HideAllContentGrids()
         {
             this.gridDiscover.Visibility = Visibility.Hidden;
-            this.gridFiveM.Visibility = Visibility.Hidden;
+            this.gridGTAVBBRP.Visibility = Visibility.Hidden;
             this.gridRedM.Visibility = Visibility.Hidden;
             this.gridMinecraft.Visibility = Visibility.Hidden;
             this.gridRivals.Visibility = Visibility.Hidden;
@@ -203,10 +203,27 @@ namespace BlueBirdLauncherUI
             {
                 this.lblFiveMCurrentServerStatus.Content = "Offline";
             }
-            
+
         }
 
         #endregion
 
+        private void btnFiveM_BluebirdRP_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnFiveM_BluebirdRacing_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnDiscover_ContentCreators_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnDiscover_ConnectWithBluebird_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
