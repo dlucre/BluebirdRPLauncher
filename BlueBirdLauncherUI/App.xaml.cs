@@ -23,6 +23,7 @@ namespace BlueBirdLauncherUI
             SetupExceptionHandling();
         }
 
+        //Exception handling code from here: https://stackoverflow.com/a/46804709/1219999
         private void SetupExceptionHandling()
         {
             AppDomain.CurrentDomain.UnhandledException += (s, e) =>
