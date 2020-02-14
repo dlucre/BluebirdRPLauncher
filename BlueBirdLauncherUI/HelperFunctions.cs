@@ -15,7 +15,7 @@ namespace BlueBirdLauncherUI
     public static class Help
     {
 
-        public static string version_number = "0.23";
+        public static string version_number = "0.24";
         private static string fivem_bluebird_hostname = "fivem.bluebirdrp.com";
         private static Int32 fivem_bluebird_port = 30111;
 
