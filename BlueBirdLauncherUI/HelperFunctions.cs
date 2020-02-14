@@ -343,12 +343,24 @@ namespace BlueBirdLauncherUI
 
         public static void ConnectToFiveMBlueBird()
         {
+             try
+            {
             //Launch FiveM and connect to BBRP
             LogMessage("Connecting to BlueBird RP!  Please hold...");
 
             //Example URL
             //fivem://connect/fivem.bluebirdrp.com:30111
             System.Diagnostics.Process.Start(string.Format("fivem://connect/{0}:{1}", fivem_bluebird_hostname, fivem_bluebird_port));
+
+            }
+            catch (Exception ex)
+            {
+                //react appropriately
+                LogMessage(ex.Message);
+                LogException(ex);
+            }
+
+
         }
 
         public static FiveMServerStatusReturnModel CheckFiveMServerPlayerCount()
